@@ -4,8 +4,8 @@ export default {
   },
 
   colors: {
-    backgroundLight: "#F2F2F2",
-    backgroundBlue: "#3F3D56",
+    mainLight: "#F2F2F2",
+    mainBlue: "#3F3D56",
   },
 
   shadows: {
