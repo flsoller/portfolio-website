@@ -10,6 +10,7 @@ const BurgerMenuLine = styled.div`
   height: 3px;
   background-color: ${props => props.theme.colors.mainLight};
   margin: 5px;
+  border-radius: 1px;
 `
 
 const BurgerMenu = ({ openMenu, setOpenMenu }) => {
