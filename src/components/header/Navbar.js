@@ -20,12 +20,12 @@ const StyledNavLinks = styled.div`
   height: 92vh;
   top: 8vh;
   background-color: ${props => props.theme.colors.mainBlue};
-  display: flex;
+  display: ${({ openMenu }) => (openMenu ? "flex" : "none")};
   flex-direction: column;
   align-items: center;
   width: 50%;
   transform: ${({ openMenu }) =>
-    openMenu ? "translateX(100%)" : "translateX(0)"};
+    openMenu ? "translateX(0)" : "translateX(100%)"};
   /* display: flex;
   justify-content: space-around;
   width: 30%; */
