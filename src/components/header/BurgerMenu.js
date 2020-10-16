@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 
 const StyledBurgerMenu = styled.div`
-  display: none;
+  cursor: pointer;
 `
 
 const BurgerMenuLine = styled.div`
@@ -12,9 +12,12 @@ const BurgerMenuLine = styled.div`
   margin: 5px;
 `
 
-const BurgerMenu = () => {
+const BurgerMenu = ({ openMenu, setOpenMenu }) => {
   return (
-    <StyledBurgerMenu>
+    <StyledBurgerMenu
+      openMenu={openMenu}
+      onClick={() => setOpenMenu(!openMenu)}
+    >
       <BurgerMenuLine />
       <BurgerMenuLine />
       <BurgerMenuLine />

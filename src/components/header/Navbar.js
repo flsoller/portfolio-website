@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
 
@@ -15,9 +15,20 @@ const StyledNav = styled.nav`
 `
 
 const StyledNavLinks = styled.div`
+  position: absolute;
+  right: 0px;
+  height: 92vh;
+  top: 8vh;
+  background-color: ${props => props.theme.colors.mainBlue};
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  transform: ${({ openMenu }) =>
+    openMenu ? "translateX(100%)" : "translateX(0)"};
+  /* display: flex;
   justify-content: space-around;
-  width: 30%;
+  width: 30%; */
 `
 
 const StyledLink = styled(props => <Link {...props} />)`
@@ -29,17 +40,19 @@ const StyledLink = styled(props => <Link {...props} />)`
 const StyledLogoContainer = styled.div``
 
 const Navbar = () => {
+  const [openMenu, setOpenMenu] = useState(false)
+
   return (
     <StyledNav>
       <StyledLogoContainer>LogoPlaceholder</StyledLogoContainer>
-      <StyledNavLinks>
+      <StyledNavLinks openMenu={openMenu}>
         <StyledLink to="/">Home</StyledLink>
         <StyledLink to="/technology">Tech</StyledLink>
         <StyledLink to="/pricing">Pricing</StyledLink>
         <StyledLink to="/about">About Us</StyledLink>
         <StyledLink to="/contact">Contact</StyledLink>
       </StyledNavLinks>
-      <BurgerMenu />
+      <BurgerMenu openMenu={openMenu} setOpenMenu={setOpenMenu} />
     </StyledNav>
   )
 }

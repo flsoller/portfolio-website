@@ -11,6 +11,7 @@ const GlobalStyles = createGlobalStyle`
 
     body, html {
         font-family: ${props => props.theme.fonts.main};
+        overflow-x: hidden;
     }
 `
 
