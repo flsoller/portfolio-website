@@ -23,12 +23,25 @@ const StyledNavLinks = styled.div`
   display: ${({ openMenu }) => (openMenu ? "flex" : "none")};
   flex-direction: column;
   align-items: center;
-  width: 50%;
+  justify-content: space-evenly;
+  width: 100%;
+  opacity: 0.8;
+  backdrop-filter: blur(16px);
+  transition: transform 3s ease-in-out;
   transform: ${({ openMenu }) =>
     openMenu ? "translateX(0)" : "translateX(100%)"};
-  /* display: flex;
-  justify-content: space-around;
-  width: 30%; */
+
+  @media (min-width: 768px) {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    top: 0;
+    opacity: 1;
+    height: auto;
+    justify-content: space-around;
+    width: 40%;
+    transform: none;
+  }
 `
 
 const StyledLink = styled(props => <Link {...props} />)`
