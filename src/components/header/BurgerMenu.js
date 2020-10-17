@@ -29,7 +29,7 @@ const StyledBurgerMenu = styled.button`
     }
   }
 
-  @media (min-width: 768px) {
+  @media ${({ theme }) => theme.breakpoints.navbar.desktop} {
     display: none;
   }
 `
