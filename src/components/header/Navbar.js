@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import styled from "styled-components"
 
 // Component imports
@@ -15,21 +15,22 @@ const StyledNav = styled.nav`
 `
 
 const StyledNavLinks = styled.div`
-  position: absolute;
+  position: fixed;
   right: 0px;
-  height: 92vh;
-  top: 8vh;
+  height: 100vh;
+  top: 0vh;
   background-color: ${props => props.theme.colors.mainBlue};
-  display: ${({ openMenu }) => (openMenu ? "flex" : "none")};
+  display: flex;
+  overflow-x: hidden;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
   width: 100%;
   opacity: 0.8;
   backdrop-filter: blur(16px);
-  transition: transform 3s ease-in-out;
-  transform: ${({ openMenu }) =>
-    openMenu ? "translateX(0)" : "translateX(100%)"};
+  transition: ${props => (props.isResizing ? "none" : "transform 0.3s ease")};
+  transform: ${props =>
+    props.openMenu ? "translateX(0)" : "translateX(100%)"};
 
   @media ${({ theme }) => theme.breakpoints.navbar.desktop} {
     position: relative;
@@ -41,17 +42,32 @@ const StyledNavLinks = styled.div`
     justify-content: space-around;
     width: 40%;
     transform: none;
+    transition: none;
   }
 `
 const StyledLogoContainer = styled.div``
 
 const Navbar = () => {
   const [openMenu, setOpenMenu] = useState(false)
+  const [isResizing, setIsResizing] = useState(false)
+
+  // Blocks animation/transition effects during window resizing.
+  useEffect(() => {
+    const userResizes = () => {
+      setIsResizing(true)
+      setTimeout(() => setIsResizing(false), 500)
+    }
+
+    window.addEventListener("resize", userResizes)
+
+    // Cleanup to prevent unused events / memory leak.
+    return () => window.removeEventListener("resize", userResizes)
+  }, [])
 
   return (
     <StyledNav>
       <StyledLogoContainer>LogoPlaceholder</StyledLogoContainer>
-      <StyledNavLinks openMenu={openMenu}>
+      <StyledNavLinks openMenu={openMenu} isResizing={isResizing}>
         <LinkItems />
       </StyledNavLinks>
       <BurgerMenu openMenu={openMenu} setOpenMenu={setOpenMenu} />
