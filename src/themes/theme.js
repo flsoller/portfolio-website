@@ -5,6 +5,7 @@ export default {
 
   colors: {
     mainLight: "#F2F2F2",
+    mainLightAlt: "#8C9EFF",
     mainBlue: "#3F3D56",
   },
 
