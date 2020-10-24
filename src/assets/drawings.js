@@ -2,8 +2,8 @@ import React from "react"
 import styled from "styled-components"
 
 const StyledSVG = styled.svg`
-  width: 300px;
-  height: 300px;
+  /* width: 300px;
+  height: 300px; */
 `
 
 export const CodeReviewSVG = () => (
@@ -11,8 +11,8 @@ export const CodeReviewSVG = () => (
     id="a594ac37-6d44-4297-8862-1cbd9c01c0b7"
     data-name="Layer 1"
     xmlns="http://www.w3.org/2000/svg"
-    width="1126.19355"
-    height="855"
+    width="120"
+    height="120"
     viewBox="0 0 1126.19355 855"
   >
     <title>code review</title>
@@ -238,8 +238,8 @@ export const MobileWebSVG = () => (
     id="aadef149-4ba5-4382-9e09-7df651a328a5"
     data-name="Layer 1"
     xmlns="http://www.w3.org/2000/svg"
-    width="704"
-    height="745.19433"
+    width="100"
+    height="100"
     viewBox="0 0 704 745.19433"
   >
     <title>mobile_web</title>
@@ -373,8 +373,8 @@ export const UpToDateSVG = () => (
     id="adc4e792-6005-44b2-b71b-0efc63d2afdb"
     data-name="Layer 1"
     xmlns="http://www.w3.org/2000/svg"
-    width="910"
-    height="685.32966"
+    width="300"
+    height="300"
     viewBox="0 0 910 685.32966"
   >
     <title>up_to_date</title>
@@ -605,8 +605,8 @@ export const WebSearchSVG = () => (
     id="e8ab07fb-aa66-4eb8-9149-b5abc1630568"
     data-name="Layer 2"
     xmlns="http://www.w3.org/2000/svg"
-    width="799.70314"
-    height="607.18766"
+    width="100"
+    height="100"
     viewBox="0 0 799.70314 607.18766"
   >
     <rect
