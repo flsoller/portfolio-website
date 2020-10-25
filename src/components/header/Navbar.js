@@ -26,7 +26,7 @@ const StyledNavLinks = styled.div`
   align-items: center;
   justify-content: space-evenly;
   width: 100%;
-  opacity: 0.8;
+  opacity: 0.9;
   backdrop-filter: blur(16px);
   transition: ${props => (props.isResizing ? "none" : "transform 0.3s ease")};
   transform: ${props =>

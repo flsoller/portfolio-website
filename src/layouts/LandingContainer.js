@@ -8,6 +8,7 @@ const StyledSection = styled.section`
   align-items: center;
   width: 100%;
   height: 92vh;
+  background-color: ${props => props.theme.colors.mainLight};
 `
 
 const Landing = ({ children }) => {
