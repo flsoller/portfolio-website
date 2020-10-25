@@ -10,12 +10,14 @@ module.exports = {
 
   // Plugins
   plugins: [
+    `gatsby-plugin-preload-fonts`,
     `gatsby-plugin-styled-components`,
     {
-      resolve: `gatsby-plugin-google-fonts`,
+      resolve: "gatsby-plugin-web-font-loader",
       options: {
-        fonts: [`roboto\:300,500,700`],
-        display: "swap",
+        google: {
+          families: ["Roboto"],
+        },
       },
     },
   ],
