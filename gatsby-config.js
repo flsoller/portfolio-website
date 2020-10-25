@@ -5,7 +5,10 @@
  */
 
 module.exports = {
-  /* Your site config here */
+  // Build
+  pathPrefix: "/website-templates",
+
+  // Plugins
   plugins: [
     `gatsby-plugin-styled-components`,
     {

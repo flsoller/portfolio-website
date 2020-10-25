@@ -2,6 +2,13 @@ import React from "react"
 import { ThemeProvider, createGlobalStyle } from "styled-components"
 import Theme from "./src/themes/theme"
 
+export const wrapRootElement = ({ element }) => (
+  <ThemeProvider theme={Theme}>
+    {/* <GlobalStyles /> */}
+    {element}
+  </ThemeProvider>
+)
+
 const GlobalStyles = createGlobalStyle`
     * {
         box-sizing: border-box;
@@ -14,9 +21,9 @@ const GlobalStyles = createGlobalStyle`
     }
 `
 
-export const wrapRootElement = ({ element }) => (
-  <ThemeProvider theme={Theme}>
+export const wrapPageElement = ({ element }) => (
+  <>
     <GlobalStyles />
     {element}
-  </ThemeProvider>
+  </>
 )
