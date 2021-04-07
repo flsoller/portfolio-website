@@ -1,7 +1,9 @@
 import Link from 'next/link';
 
+import { MenuItem } from '../lib/types';
+
 export default function NavBar() {
-  const menuItems = [
+  const menuItems: MenuItem[] = [
     { pageName: 'Home', href: '/' },
     { pageName: 'Blog', href: '/blog' },
     { pageName: 'Projects', href: '/projects' },
