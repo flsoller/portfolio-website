@@ -5,16 +5,18 @@ import projects from '../lib/projects';
 export default function Projects() {
   return (
     <Layout title="My Projects">
-      {projects.map((project) => (
-        <ProjectCard
-          key={project.name}
-          imgSource={project.imgSource}
-          name={project.name}
-          description={project.description}
-          hostedLink={project.hostedLink}
-          sourceLink={project.sourceLink}
-        />
-      ))}
+      <div className="flex flex-col justify-center lg:flex-row lg:flex-wrap items-center">
+        {projects.map((project) => (
+          <ProjectCard
+            key={project.name}
+            imgSource={project.imgSource}
+            name={project.name}
+            description={project.description}
+            hostedLink={project.hostedLink}
+            sourceLink={project.sourceLink}
+          />
+        ))}
+      </div>
     </Layout>
   );
 }
