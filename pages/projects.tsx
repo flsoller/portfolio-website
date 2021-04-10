@@ -5,7 +5,7 @@ import projects from '../lib/projects';
 export default function Projects() {
   return (
     <Layout title="My Projects">
-      <div className="flex flex-col justify-center lg:flex-row lg:flex-wrap items-center">
+      <div className="flex flex-col justify-center space-y-3 sm:space-y-0 lg:flex-row lg:flex-wrap items-center">
         {projects.map((project) => (
           <ProjectCard
             key={project.name}
