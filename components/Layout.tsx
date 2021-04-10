@@ -11,7 +11,7 @@ type LayoutProps = {
 export default function Layout(props: LayoutProps) {
   const { children, title = 'Placeholder Title' } = props;
   return (
-    <div className="w-full min-w-min">
+    <div className="w-full h-full min-h-screen min-w-min bg-bgBlue">
       <Head>
         <title>{title}</title>
         <meta charSet="utf-8" />
