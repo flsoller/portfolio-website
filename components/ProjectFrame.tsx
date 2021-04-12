@@ -6,8 +6,8 @@ export default function ProjectFrame(props: ProjectFrame) {
   const { children } = props;
 
   return (
-    <div className="max-w-xl mt-4 px-2">
-      <div className="shadow-lg rounded-xl bg-gray-800">
+    <div className="max-w-xl px-2">
+      <div className="shadow-xl rounded-xl bg-gray-800">
         <div className="py-2 px-4 flex items-center space-x-5">
           <div className="flex space-x-1.5">
             <div className="w-3 h-3 rounded-full bg-red-500"></div>
