@@ -2,6 +2,7 @@ import Head from 'next/head';
 
 // Component imports
 import Navbar from '../components/Navbar';
+import Footer from './Footer';
 
 type LayoutProps = {
   children: React.ReactNode;
@@ -11,7 +12,7 @@ type LayoutProps = {
 export default function Layout(props: LayoutProps) {
   const { children, title = 'Placeholder Title' } = props;
   return (
-    <div className="w-full h-full min-h-screen min-w-min bg-bgBlue">
+    <div className="flex flex-col w-full min-h-screen min-w-min bg-bgBlue">
       <Head>
         <title>{title}</title>
         <meta charSet="utf-8" />
@@ -20,7 +21,10 @@ export default function Layout(props: LayoutProps) {
       <header>
         <Navbar />
       </header>
-      <main>{children}</main>
+      <main className="flex-grow">{children}</main>
+      <footer>
+        <Footer />
+      </footer>
     </div>
   );
 }
