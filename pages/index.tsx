@@ -8,7 +8,7 @@ import Layout from '../components/Layout';
 export default function Home() {
   return (
     <Layout title="Florian Soller">
-      <div className="p-6 md:px-16 md:mt-4 md:justify-center md:items-center md:flex md:flex-col">
+      <div className="p-6 md:px-16 md:mt-4 md:justify-center md:items-center md:flex md:flex-col max-h-screen">
         <h1 className="text-3xl font-extrabold text-gray-800">
           Hi, I'm Florian!
         </h1>

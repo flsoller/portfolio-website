@@ -21,7 +21,7 @@ export default function Layout(props: LayoutProps) {
       <header>
         <Navbar />
       </header>
-      <main className="flex-grow">{children}</main>
+      <main>{children}</main>
       <footer>
         <Footer />
       </footer>
