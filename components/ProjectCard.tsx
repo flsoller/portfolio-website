@@ -17,13 +17,22 @@ export default function ProjectCard(props: Project) {
         <h1 className="font-bold">{name}</h1>
         <p className="text-base">{description}</p>
         <section className="font-medium flex space-x-6 justify-center lg:justify-start">
-          {/* ToDo: Set buttons as Link Components from next/links */}
-          <button className="bg-gray-700 text-white px-3 py-2 text-center rounded-md text-base font-medium">
+          <a
+            className="bg-gray-700 text-white px-3 py-2 text-center rounded-md text-base font-medium"
+            target="_blank"
+            rel="noopener"
+            href={hostedLink}
+          >
             Live Demo
-          </button>
-          <button className="bg-gray-700 text-white px-3 py-2 text-center rounded-md text-base font-medium">
+          </a>
+          <a
+            className="bg-gray-700 text-white px-3 py-2 text-center rounded-md text-base font-medium"
+            target="_blank"
+            rel="noopener"
+            href={sourceLink}
+          >
             Source
-          </button>
+          </a>
         </section>
       </div>
     </article>
