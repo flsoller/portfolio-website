@@ -16,6 +16,7 @@ export default function Footer() {
           target="_blank"
           rel="noopener"
           href="https://twitter.com/Florian_FSO"
+          aria-label="Follow me on Twitter"
         >
           <FaTwitter />
         </a>
@@ -24,6 +25,7 @@ export default function Footer() {
           target="_blank"
           rel="noopener"
           href="https://www.linkedin.com/in/floriansoller/"
+          aria-label="Connect with me on LinkedIn"
         >
           <FaLinkedinIn />
         </a>

@@ -7,7 +7,10 @@ import Layout from '../components/Layout';
 
 export default function Home() {
   return (
-    <Layout title="Florian Soller">
+    <Layout
+      title="Florian Soller | Frontend Developer"
+      description="Software Developer based in Berlin, Germany - specializing in building applications that run on the web."
+    >
       <div className="p-6 md:px-16 md:mt-4 md:justify-center md:items-center md:flex md:flex-col max-h-screen">
         <h1 className="text-3xl font-extrabold text-gray-800">
           Hi, I'm Florian!
