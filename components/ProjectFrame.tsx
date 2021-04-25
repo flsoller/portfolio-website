@@ -6,7 +6,7 @@ export default function ProjectFrame(props: ProjectFrame) {
   const { children } = props;
 
   return (
-    <div className="max-w-xl px-2">
+    <div className="max-w-lg p-4">
       <div className="shadow-xl rounded-xl bg-gray-800">
         <div className="py-2 px-4 flex items-center space-x-5">
           <div className="flex space-x-1.5">
@@ -26,7 +26,7 @@ export default function ProjectFrame(props: ProjectFrame) {
             </div>
           </div>
         </div>
-        <div className="px-2 pb-2">{children}</div>
+        <div className="px-2 py-1">{children}</div>
       </div>
     </div>
   );

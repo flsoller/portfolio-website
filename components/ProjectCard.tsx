@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 import ProjectFrame from '../components/ProjectFrame';
 import { Project } from '../lib/types';
 
@@ -7,13 +9,16 @@ export default function ProjectCard(props: Project) {
   return (
     <article className="flex flex-col lg:flex-row lg:even:flex-row-reverse p-4 lg:p-8 items-center max-w-2xl lg:max-w-6xl lg:space-x-4 align-center">
       <ProjectFrame>
-        <img
-          className="rounded-md mx-auto"
-          src={`${imgSource}`}
+        <Image
+          className="rounded-lg"
+          src={imgSource}
           alt="Preview of the project"
+          width={650}
+          height={400}
+          layout="intrinsic"
         />
       </ProjectFrame>
-      <div className="p-8 text-center lg:text-left space-y-6">
+      <div className="p-8 text-center lg:text-left space-y-6 max-w-lg">
         <h1 className="font-bold">{name}</h1>
         <p className="text-base">{description}</p>
         <section className="font-medium flex space-x-6 justify-center lg:justify-start">
