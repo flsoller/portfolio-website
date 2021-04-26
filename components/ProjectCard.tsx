@@ -14,7 +14,7 @@ export default function ProjectCard(props: Project) {
           src={imgSource}
           alt="Preview of the project"
           width={650}
-          height={400}
+          height={390}
           layout="intrinsic"
         />
       </ProjectFrame>
