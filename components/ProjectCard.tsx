@@ -13,8 +13,8 @@ export default function ProjectCard(props: Project) {
           className="rounded-lg"
           src={imgSource}
           alt="Preview of the project"
-          width={650}
-          height={390}
+          width={1600}
+          height={950}
           layout="intrinsic"
         />
       </ProjectFrame>
