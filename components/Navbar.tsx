@@ -11,17 +11,19 @@ export default function NavBar() {
 
   return (
     <nav className="bg-gray-800 shadow-md">
-      <div className="relative flex items-center h-16 space-x-6 justify-center">
+      <ul className="relative flex items-center h-16 space-x-6 justify-center">
         {menuItems.map((item) => {
           return (
-            <Link href={item.href} key={item.pageName}>
-              <a className=" text-gray-200 hover:bg-gray-700 hover:text-white px-3 py-2 text-center rounded-md text-base font-medium">
-                {item.pageName}
-              </a>
-            </Link>
+            <li>
+              <Link href={item.href} key={item.pageName}>
+                <a className=" text-gray-200 hover:bg-gray-700 hover:text-white px-3 py-2 text-center rounded-md text-lg font-medium">
+                  {item.pageName}
+                </a>
+              </Link>
+            </li>
           );
         })}
-      </div>
+      </ul>
     </nav>
   );
 }
