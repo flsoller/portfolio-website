@@ -10,3 +10,10 @@ export type MenuItem = {
   pageName: string;
   href: string;
 };
+
+export type BlogPreview = {
+  date: string;
+  postTitle: string;
+  tags: string[];
+  introText: string;
+};
