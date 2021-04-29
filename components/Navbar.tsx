@@ -14,8 +14,8 @@ export default function NavBar() {
       <ul className="relative flex items-center h-16 space-x-6 justify-center">
         {menuItems.map((item) => {
           return (
-            <li>
-              <Link href={item.href} key={item.pageName}>
+            <li key={item.pageName}>
+              <Link href={item.href}>
                 <a className=" text-gray-200 hover:bg-gray-700 hover:text-white px-3 py-2 text-center rounded-md text-lg font-medium">
                   {item.pageName}
                 </a>
