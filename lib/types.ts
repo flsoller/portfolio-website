@@ -4,6 +4,7 @@ export type Project = {
   description: string;
   hostedLink: string;
   sourceLink: string;
+  noDemo?: boolean;
 };
 
 export type MenuItem = {

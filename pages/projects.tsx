@@ -17,6 +17,7 @@ export default function Projects() {
             description={project.description}
             hostedLink={project.hostedLink}
             sourceLink={project.sourceLink}
+            noDemo={project.noDemo}
           />
         ))}
       </div>
