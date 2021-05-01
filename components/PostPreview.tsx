@@ -1,9 +1,9 @@
 import Link from 'next/link';
 
-import { BlogPreview } from '../lib/types';
+import { BlogPost } from '../lib/types';
 
-export default function PostPreview(props: BlogPreview) {
-  const { date, postTitle, tags, introText, slug } = props;
+export default function PostPreview(props: BlogPost) {
+  const { date, title, tags, description, slug } = props;
 
   return (
     <article>
@@ -12,7 +12,7 @@ export default function PostPreview(props: BlogPreview) {
           {date}
         </p>
         <div className="col-span-3">
-          <p className="text-xl font-bold text-gray-800">{postTitle}</p>
+          <p className="text-xl font-bold text-gray-800">{title}</p>
           <div className="flex space-x-3">
             {tags.map((tag) => {
               return (
@@ -25,7 +25,7 @@ export default function PostPreview(props: BlogPreview) {
               );
             })}
           </div>
-          <p className="pt-4 text-gray-500">{introText}</p>
+          <p className="py-4 text-gray-500">{description}</p>
           <Link href={`/blog/${slug}`}>
             <a className="text-blue-400 tracking-wider pt-4">Read more...</a>
           </Link>
