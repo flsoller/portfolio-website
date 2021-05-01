@@ -1,3 +1,5 @@
+import { RichTextContent } from 'contentful';
+
 export type Project = {
   imgSource: string;
   name: string;
@@ -12,9 +14,11 @@ export type MenuItem = {
   href: string;
 };
 
-export type BlogPreview = {
+export type BlogPost = {
+  title: string;
+  slug: string;
   date: string;
-  postTitle: string;
+  description: string;
   tags: string[];
-  introText: string;
+  body?: RichTextContent;
 };
