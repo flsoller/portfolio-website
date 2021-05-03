@@ -1,7 +1,8 @@
 import { ContentfulClientApi, createClient } from 'contentful';
 import { GetStaticPaths } from 'next';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import { BLOCKS, INLINES } from '@contentful/rich-text-types';
+
+import { richTextOptions } from '../../components/Contentful';
 
 import Layout from '../../components/Layout';
 
@@ -40,43 +41,10 @@ export async function getStaticProps({ params }: any) {
   };
 }
 
-const richTextOptions = {
-  renderNode: {
-    [BLOCKS.HEADING_2]: (node: any, children: any) => {
-      return (
-        <h2 className="text-xl text-gray-800 font-semibold pt-6 pb-2 tracking-wider">
-          {children}
-        </h2>
-      );
-    },
-    [BLOCKS.PARAGRAPH]: (node: any, children: any) => {
-      return (
-        <p className="text-gray-700 tracking-wide leading-relaxed py-2">
-          {children}
-        </p>
-      );
-    },
-    [INLINES.HYPERLINK]: (node: any, children: any) => {
-      return (
-        <a
-          className="bg-blue-400 text-white p-1 text-center rounded-md text-base font-medium"
-          target="_blank"
-          rel="noopener"
-          href={node.data.uri}
-        >
-          {children}
-        </a>
-      );
-    },
-  },
-};
-
 export default function BlogPost({ blogPost }: any) {
-  console.log(blogPost);
-
   return (
     <Layout
-      title={`Florian Soller - Blog - ${blogPost.fields.title}`}
+      title={`Florian Soller - ${blogPost.fields.title}`}
       description={blogPost.fields.description}
     >
       <div className="max-w-3xl mx-auto p-4">
