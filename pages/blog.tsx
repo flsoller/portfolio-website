@@ -20,7 +20,10 @@ export const getStaticProps: GetStaticProps = async () => {
 
 export default function Blog({ blogPost }: any) {
   return (
-    <Layout title="Florian Soller - Blog">
+    <Layout
+      title="Florian Soller - Blog"
+      description="A blog to document my journey through web development as well as write about my projects and the technolgies I use"
+    >
       <div className="flex flex-col justify-center items-center mt-8 mx-auto space-y-6 md:max-w-5xl p-4 md:p-8">
         <ul className="divide-y divide-gray-300">
           {blogPost.map((post: any) => {

@@ -75,7 +75,10 @@ export default function BlogPost({ blogPost }: any) {
   console.log(blogPost);
 
   return (
-    <Layout title={`Florian Soller - Blog - ${blogPost.fields.title}`}>
+    <Layout
+      title={`Florian Soller - Blog - ${blogPost.fields.title}`}
+      description={blogPost.fields.description}
+    >
       <div className="max-w-3xl mx-auto p-4">
         <h1 className="text-center text-3xl font-bold text-gray-800 py-4">
           {blogPost.fields.title}
