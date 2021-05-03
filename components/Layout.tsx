@@ -13,7 +13,7 @@ type LayoutProps = {
 export default function Layout(props: LayoutProps) {
   const { children, title = '', description = '' } = props;
   return (
-    <div className="flex flex-col w-full min-h-screen min-w-min bg-bgBlue">
+    <div className="flex flex-col w-full min-h-screen min-w-min bg-bgColor">
       <Head>
         <title>{title}</title>
         <meta charSet="utf-8" />
