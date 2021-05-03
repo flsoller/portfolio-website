@@ -27,17 +27,17 @@ export default function Home() {
       </div>
 
       <div className="flex flex-col p-6 md:p-0 md:mt-10 items-center">
-        <h3 className="text-xl font-bold">Check out some of</h3>
+        <h3 className="text-xl font-bold text-gray-700">Check out some of</h3>
         <div className="mt-3">
           <Link href="/projects">
-            <a className="text-gray-200 bg-gray-700 hover:text-white px-4 py-3 text-center rounded-md text-base font-medium">
+            <a className="text-gray-100 bg-gray-700 hover:text-white px-4 py-3 text-center rounded-md text-base font-medium">
               MY PROJECTS
             </a>
           </Link>
         </div>
       </div>
       <section className="p-6 md:px-16 sm:flex sm:flex-col sm:mt-10 items-center">
-        <article className="text-lg sm:text-center text-gray-900 font-medium max-w-xl">
+        <article className="text-lg sm:text-center text-gray-800 font-medium max-w-xl">
           I’m a self-taught software developer based in Berlin, Germany. I made
           it my mission, learning how to build state of the art web
           applications.

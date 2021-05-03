@@ -17,7 +17,7 @@ export default function PostPreview(props: BlogPost) {
             {tags.map((tag) => {
               return (
                 <p
-                  className="text-sm font-medium uppercase text-blue-400 tracking-wider"
+                  className="text-sm font-medium uppercase text-blue-600 tracking-wider"
                   key={tag}
                 >
                   {tag}
@@ -25,9 +25,9 @@ export default function PostPreview(props: BlogPost) {
               );
             })}
           </div>
-          <p className="py-4 text-gray-500">{description}</p>
+          <p className="py-4 text-gray-800">{description}</p>
           <Link href={`/blog/${slug}`}>
-            <a className="text-blue-400 tracking-wider pt-4">Read more...</a>
+            <a className="text-blue-600 tracking-wide pt-4">Read more...</a>
           </Link>
         </div>
       </div>
