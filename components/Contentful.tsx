@@ -19,7 +19,7 @@ export const richTextOptions = {
     [INLINES.HYPERLINK]: (node: any, children: any) => {
       return (
         <a
-          className="text-blue-600 p-1 text-center rounded-md text-base font-medium"
+          className="text-blue-600 text-center rounded-md text-base font-medium"
           target="_blank"
           rel="noopener"
           href={node.data.uri}
