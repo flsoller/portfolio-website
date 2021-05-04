@@ -26,7 +26,7 @@ export default function ProjectFrame(props: ProjectFrame) {
             </div>
           </div>
         </div>
-        <div className="px-2 py-1">{children}</div>
+        <div className="p-2">{children}</div>
       </div>
     </div>
   );

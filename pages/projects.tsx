@@ -8,8 +8,8 @@ export default function Projects() {
       title="Florian Soller - Projects"
       description="Portfolio overview of the projects I am working on or have built in the past."
     >
-      <div className="flex flex-col justify-center items-center space-y-6">
-        {projects.map((project) => (
+      <div className="flex flex-col justify-center items-center space-y-4">
+        {projects.map((project, index) => (
           <ProjectCard
             key={project.name}
             imgSource={project.imgSource}
@@ -18,6 +18,7 @@ export default function Projects() {
             hostedLink={project.hostedLink}
             sourceLink={project.sourceLink}
             noDemo={project.noDemo}
+            index={index}
           />
         ))}
       </div>
