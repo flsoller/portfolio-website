@@ -7,6 +7,7 @@ export type Project = {
   hostedLink: string;
   sourceLink: string;
   noDemo?: boolean;
+  index: number;
 };
 
 export type MenuItem = {
