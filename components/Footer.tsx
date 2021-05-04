@@ -15,7 +15,7 @@ export default function Footer() {
           className="bg-blue-400 text-white px-3 py-2 text-center rounded-md text-base font-medium"
           target="_blank"
           rel="noopener"
-          href="https://twitter.com/Florian_FSO"
+          href="https://twitter.com/flsoller"
           aria-label="Follow me on Twitter"
         >
           <FaTwitter />
