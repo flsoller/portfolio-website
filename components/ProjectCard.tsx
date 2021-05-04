@@ -15,7 +15,7 @@ export default function ProjectCard(props: Project) {
   } = props;
 
   // boolean used for grid row inversion for alternating effect on project page
-  const isEven = index % 2 === 0 ? true : false;
+  const isEven = (index || 0) % 2 === 0 ? true : false;
 
   return (
     // <article className="flex flex-col lg:flex-row lg:even:flex-row-reverse p-4 lg:p-8 items-center max-w-2xl lg:max-w-6xl lg:space-x-4 align-center">
