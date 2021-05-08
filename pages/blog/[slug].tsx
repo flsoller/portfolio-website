@@ -43,10 +43,15 @@ export async function getStaticProps({ params }: any) {
 }
 
 export default function BlogPost({ blogPost }: any) {
-  const { title, description, body, picture } = blogPost.fields;
+  const { title, description, body, picture, twitterCardUrl } = blogPost.fields;
+  console.log(blogPost);
 
   return (
-    <Layout title={`Florian Soller - ${title}`} description={description}>
+    <Layout
+      title={`Florian Soller - ${title}`}
+      description={description}
+      twitterCardImageURL={twitterCardUrl && twitterCardUrl}
+    >
       <div className="max-w-3xl mx-auto p-4">
         {picture && (
           <Image
