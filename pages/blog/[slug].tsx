@@ -1,7 +1,8 @@
-import { ContentfulClientApi, createClient } from 'contentful';
 import { GetStaticPaths } from 'next';
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import Image from 'next/image';
 
+import { ContentfulClientApi, createClient } from 'contentful';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { richTextOptions } from '../../components/Contentful';
 
 import Layout from '../../components/Layout';
@@ -42,19 +43,28 @@ export async function getStaticProps({ params }: any) {
 }
 
 export default function BlogPost({ blogPost }: any) {
+  const { title, description, body, picture, twitterCardUrl } = blogPost.fields;
+
   return (
     <Layout
-      title={`Florian Soller - ${blogPost.fields.title}`}
-      description={blogPost.fields.description}
+      title={`Florian Soller - ${title}`}
+      description={description}
+      twitterCardImageURL={twitterCardUrl && twitterCardUrl}
     >
       <div className="max-w-3xl mx-auto p-4">
+        {picture && (
+          <Image
+            src={`https:${picture.fields.file.url}`}
+            width={picture.fields.file.details.image.width}
+            height={picture.fields.file.details.image.height}
+            layout="responsive"
+          />
+        )}
         <h1 className="text-center text-3xl font-bold text-gray-800 py-4">
-          {blogPost.fields.title}
+          {title}
         </h1>
 
-        <article>
-          {documentToReactComponents(blogPost.fields.body, richTextOptions)}
-        </article>
+        <article>{documentToReactComponents(body, richTextOptions)}</article>
       </div>
     </Layout>
   );

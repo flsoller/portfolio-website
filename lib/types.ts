@@ -22,4 +22,18 @@ export type BlogPost = {
   description: string;
   tags: string[];
   body?: RichTextContent;
+  twitterCardUrl?: string;
+  picture?: {
+    fields: {
+      file: {
+        url: string;
+        details: {
+          image: {
+            height: number;
+            width: number;
+          };
+        };
+      };
+    };
+  };
 };
