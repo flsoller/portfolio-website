@@ -23,7 +23,7 @@ export type BlogPost = {
   tags: string[];
   body?: RichTextContent;
   twitterCardUrl?: string;
-  picture: {
+  picture?: {
     fields: {
       file: {
         url: string;
