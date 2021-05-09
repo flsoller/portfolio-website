@@ -10,7 +10,7 @@ export default function NavBar() {
   ];
 
   return (
-    <nav className="bg-gray-800 shadow-md">
+    <nav className="bg-gray-800 shadow-md fixed w-full z-50">
       <ul className="relative flex items-center h-16 space-x-6 justify-center">
         {menuItems.map((item) => {
           return (

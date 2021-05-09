@@ -34,7 +34,7 @@ export default function Layout(props: LayoutProps) {
       <header>
         <Navbar />
       </header>
-      <main>{children}</main>
+      <main className="mt-16">{children}</main>
       <footer>
         <Footer />
       </footer>

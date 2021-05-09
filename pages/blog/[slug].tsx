@@ -44,7 +44,6 @@ export async function getStaticProps({ params }: any) {
 
 export default function BlogPost({ blogPost }: any) {
   const { title, description, body, picture, twitterCardUrl } = blogPost.fields;
-  console.log(blogPost);
 
   return (
     <Layout
