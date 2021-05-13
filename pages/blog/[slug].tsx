@@ -10,6 +10,7 @@ import Layout from '../../components/Layout';
 const client: ContentfulClientApi = createClient({
   space: String(process.env.CONTENTFUL_SPACE_ID),
   accessToken: String(process.env.CONTENTFUL_ACCESS_KEY),
+  host: String(process.env.HOST_URL),
 });
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -57,6 +58,8 @@ export default function BlogPost({ blogPost }: any) {
             src={`https:${picture.fields.file.url}`}
             width={picture.fields.file.details.image.width}
             height={picture.fields.file.details.image.height}
+            // Empty alt tag as picture is only decorative
+            alt=""
             layout="responsive"
           />
         )}

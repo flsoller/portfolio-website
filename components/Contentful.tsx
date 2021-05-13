@@ -1,6 +1,11 @@
-import { BLOCKS, INLINES } from '@contentful/rich-text-types';
+import { BLOCKS, INLINES, MARKS } from '@contentful/rich-text-types';
 
 export const richTextOptions = {
+  renderMark: {
+    [MARKS.CODE]: (text: any) => (
+      <code className="bg-bgCode text-white p-2 ml-4">{text}</code>
+    ),
+  },
   renderNode: {
     [BLOCKS.HEADING_2]: (node: any, children: any) => {
       return (

@@ -7,6 +7,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const client: ContentfulClientApi = createClient({
     space: String(process.env.CONTENTFUL_SPACE_ID),
     accessToken: String(process.env.CONTENTFUL_ACCESS_KEY),
+    host: String(process.env.HOST_URL),
   });
 
   const res = await client.getEntries({ content_type: 'blogPost' });
