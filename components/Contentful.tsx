@@ -1,11 +1,6 @@
-import { BLOCKS, INLINES, MARKS } from '@contentful/rich-text-types';
+import { BLOCKS, INLINES } from '@contentful/rich-text-types';
 
 export const richTextOptions = {
-  renderMark: {
-    [MARKS.CODE]: (text: any) => (
-      <code className="bg-bgCode text-white p-2 ml-4">{text}</code>
-    ),
-  },
   renderNode: {
     [BLOCKS.HEADING_2]: (node: any, children: any) => {
       return (
@@ -15,8 +10,18 @@ export const richTextOptions = {
       );
     },
     [BLOCKS.PARAGRAPH]: (node: any, children: any) => {
+      if (
+        node.content.length === 1 &&
+        node.content[0].marks.some((mark: any) => mark.type === 'code')
+      ) {
+        return (
+          <pre className="bg-bgCode text-white p-2 overflow-auto max-h-60 tracking-tighter text-xs md:text-sm">
+            <code>{node.content[0].value}</code>
+          </pre>
+        );
+      }
       return (
-        <p className="text-gray-700 tracking-wide leading-relaxed py-2">
+        <p className="text-gray-700 tracking-wide leading-relaxed py-2 text-base">
           {children}
         </p>
       );
