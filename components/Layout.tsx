@@ -19,7 +19,7 @@ export default function Layout(props: LayoutProps) {
     twitterCardImageURL = 'https://res.cloudinary.com/dgop5kvdk/image/upload/c_crop,h_1400,w_1400/v1620229066/portfolio-website/portfolio-website-home.png',
   } = props;
   return (
-    <div className="flex flex-col w-full min-h-screen min-w-min bg-bgColor">
+    <div className="flex flex-col w-full min-h-screen bg-bgColor">
       <Head>
         <title>{title}</title>
         <meta charSet="utf-8" />
