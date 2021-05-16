@@ -1,4 +1,4 @@
-import { FaTwitter, FaLinkedinIn, FaHeart } from 'react-icons/fa';
+import { FaTwitter, FaLinkedinIn, FaHeart, FaGithub } from 'react-icons/fa';
 
 export default function Footer() {
   return (
@@ -9,7 +9,7 @@ export default function Footer() {
         <p>in Berlin.</p>
       </div>
 
-      <p>You can connect with me on Twitter and LinkedIn</p>
+      <p>You can connect with me on Twitter, LinkedIn and GitHub</p>
       <div className="flex flex-row space-x-2 mt-2">
         <a
           className="bg-blue-400 text-white px-3 py-2 text-center rounded-md text-base font-medium"
@@ -28,6 +28,15 @@ export default function Footer() {
           aria-label="Connect with me on LinkedIn"
         >
           <FaLinkedinIn />
+        </a>
+        <a
+          className="bg-blue-400 text-white px-3 py-2 text-center rounded-md text-base font-medium"
+          target="_blank"
+          rel="noopener"
+          href="https://github.com/flsoller"
+          aria-label="Connect with me on GitHub"
+        >
+          <FaGithub />
         </a>
       </div>
     </div>
