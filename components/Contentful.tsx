@@ -1,5 +1,13 @@
 import { BLOCKS, INLINES } from '@contentful/rich-text-types';
 
+import { Light as SyntaxHighlighter } from 'react-syntax-highlighter';
+import js from 'react-syntax-highlighter/dist/cjs/languages/hljs/javascript';
+import dracula from 'react-syntax-highlighter/dist/cjs/styles/hljs/dracula';
+
+// Set up optimised syntax highlighter
+SyntaxHighlighter.registerLanguage('javascript', js);
+
+// Contentful render options
 export const richTextOptions = {
   renderNode: {
     [BLOCKS.HEADING_2]: (node: any, children: any) => {
@@ -15,9 +23,11 @@ export const richTextOptions = {
         node.content[0].marks.some((mark: any) => mark.type === 'code')
       ) {
         return (
-          <pre className="bg-bgCode text-white p-2 overflow-auto max-h-60 tracking-tighter text-xs md:text-sm">
-            <code>{node.content[0].value}</code>
-          </pre>
+          <div className="my-2 overflow-auto max-h-60 tracking-tighter text-xs md:text-sm">
+            <SyntaxHighlighter language="javascript" style={dracula}>
+              {node.content[0].value}
+            </SyntaxHighlighter>
+          </div>
         );
       }
       return (
