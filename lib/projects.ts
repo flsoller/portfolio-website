@@ -16,9 +16,8 @@ const projectCollection: Project[] = [
     name: 'Service Reporting App (WIP)',
     description:
       'A work in progress project for tracking, generating and managing technical maintenance reports. This currently uses Typescript, React, React-Router, Axios, Formik, Material-UI, NodeJS with Express and MongoDB',
-    hostedLink: 'https://github.com/flsoller/sam-reporting-app',
+    hostedLink: 'https://sam-reporting-app.herokuapp.com/',
     sourceLink: 'https://github.com/flsoller/sam-reporting-app',
-    noDemo: true,
   },
   {
     imgSource: `${imgSource}/library-react-project.png`,
