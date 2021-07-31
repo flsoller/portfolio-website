@@ -14,16 +14,17 @@ export default function PostPreview(props: BlogPost) {
         <div className="col-span-3">
           <p className="text-xl font-bold text-gray-800">{title}</p>
           <div className="flex space-x-3">
-            {tags.map((tag) => {
-              return (
-                <p
-                  className="text-sm font-medium uppercase text-blue-600 tracking-wider"
-                  key={tag}
-                >
-                  {tag}
-                </p>
-              );
-            })}
+            {tags &&
+              tags.map((tag) => {
+                return (
+                  <p
+                    className="text-sm font-medium uppercase text-blue-600 tracking-wider"
+                    key={tag}
+                  >
+                    {tag}
+                  </p>
+                );
+              })}
           </div>
           <p className="py-4 text-gray-800">{description}</p>
           <Link href={`/blog/${slug}`}>
