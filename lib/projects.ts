@@ -15,7 +15,7 @@ const projectCollection: Project[] = [
     imgSource: `${imgSource}/reporting-app.png`,
     name: 'Service Reporting App (WIP)',
     description:
-      'A work in progress project for tracking, generating and managing technical maintenance reports. This currently uses Typescript, React, React-Router, Axios, Formik, Material-UI, NodeJS with Express and MongoDB',
+      'A work in progress project for tracking, generating and managing technical maintenance reports. Stack: Typescript, Angular 12, Angular Material, TailwindCSS, Jest, NodeJS with Express and MongoDB. Hosted on a free dyno of Heroku, server may need a few seconds to wake up from sleep mode.',
     hostedLink: 'https://sam-reporting-app.herokuapp.com/',
     sourceLink: 'https://github.com/flsoller/sam-reporting-app',
   },
