@@ -27,8 +27,8 @@ export default function PostPreview(props: BlogPost) {
               })}
           </div>
           <p className="py-4 text-gray-800">{description}</p>
-          <Link href={`/blog/${slug}`}>
-            <a className="text-blue-600 tracking-wide pt-4">Read more...</a>
+          <Link href={`/blog/${slug}`} className="text-blue-600 tracking-wide pt-4">
+            Read more...
           </Link>
         </div>
       </div>

@@ -15,10 +15,12 @@ export default function NavBar() {
         {menuItems.map((item) => {
           return (
             <li key={item.pageName}>
-              <Link href={item.href}>
-                <a className=" text-gray-200 hover:bg-gray-700 hover:text-white px-3 py-2 text-center rounded-md text-lg font-medium">
-                  {item.pageName}
-                </a>
+              <Link
+                href={item.href}
+                className=" text-gray-200 hover:bg-gray-700 hover:text-white px-3 py-2 text-center rounded-md text-lg font-medium">
+
+                {item.pageName}
+
               </Link>
             </li>
           );

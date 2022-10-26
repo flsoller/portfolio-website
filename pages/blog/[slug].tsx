@@ -60,7 +60,6 @@ export default function BlogPost({ blogPost }: any) {
             height={picture.fields.file.details.image.height}
             // Empty alt tag as picture is only decorative
             alt=""
-            layout="responsive"
           />
         )}
         <h1 className="text-center text-3xl font-bold text-gray-800 py-4">

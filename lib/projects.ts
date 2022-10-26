@@ -4,20 +4,29 @@ const imgSource = '/project-previews';
 
 const projectCollection: Project[] = [
   {
+    imgSource: `${imgSource}/under_construction.png`,
+    name: '(WIP) Hour Tracking App',
+    description:
+      'Work in progress full stack application featuring Docker, Postgres, Prisma, Express and Vue',
+    hostedLink: '',
+    sourceLink: 'https://github.com/flsoller/ff-hour-tracker',
+    noDemo: true,
+  },
+  {
+    imgSource: `${imgSource}/reporting-app.png`,
+    name: 'Demo Reporting App',
+    description:
+      'A sample project for tracking, generating and managing technical maintenance reports. Stack: Typescript, Angular 12, Angular Material, TailwindCSS, Jest, NodeJS with Express and MongoDB. Hosted on a free dyno of Heroku, server may need a few seconds to wake up from sleep mode.',
+    hostedLink: 'https://sam-reporting-app.herokuapp.com/',
+    sourceLink: 'https://github.com/flsoller/sam-reporting-app',
+  },
+  {
     imgSource: `${imgSource}/library-angular-project.png`,
     name: 'Angular Book App',
     description:
       'A project made with Angular and Tailwind, implements localStorage. Additional focus was placed on unit testing with 100% coverage.',
     hostedLink: 'https://flsoller.github.io/library-angular-app/',
     sourceLink: 'https://github.com/flsoller/library-angular-app',
-  },
-  {
-    imgSource: `${imgSource}/reporting-app.png`,
-    name: 'Service Reporting App (WIP)',
-    description:
-      'A work in progress project for tracking, generating and managing technical maintenance reports. Stack: Typescript, Angular 12, Angular Material, TailwindCSS, Jest, NodeJS with Express and MongoDB. Hosted on a free dyno of Heroku, server may need a few seconds to wake up from sleep mode.',
-    hostedLink: 'https://sam-reporting-app.herokuapp.com/',
-    sourceLink: 'https://github.com/flsoller/sam-reporting-app',
   },
   {
     imgSource: `${imgSource}/library-react-project.png`,
