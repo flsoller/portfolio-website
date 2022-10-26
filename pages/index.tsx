@@ -29,10 +29,12 @@ export default function Home() {
       <div className="flex flex-col p-6 md:p-0 md:mt-10 items-center">
         <h3 className="text-xl font-bold text-gray-700">Check out some of</h3>
         <div className="mt-3">
-          <Link href="/projects">
-            <a className="text-gray-100 bg-gray-700 hover:text-white px-4 py-3 text-center rounded-md text-base font-medium">
+          <Link
+            href="/projects"
+            className="text-gray-100 bg-gray-700 hover:text-white px-4 py-3 text-center rounded-md text-base font-medium">
+            
               MY PROJECTS
-            </a>
+            
           </Link>
         </div>
       </div>

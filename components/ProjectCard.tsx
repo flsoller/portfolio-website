@@ -28,7 +28,6 @@ export default function ProjectCard(props: Project) {
             alt="Preview of the project"
             width={1600}
             height={950}
-            layout="responsive"
           />
         </ProjectFrame>
       </div>
