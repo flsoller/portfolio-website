@@ -4,21 +4,21 @@ const imgSource = '/project-previews';
 
 const projectCollection: Project[] = [
   {
-    imgSource: `${imgSource}/under_construction.png`,
+    imgSource: `${imgSource}/hour-tracker.png`,
     name: '(WIP) Hour Tracking App',
     description:
       'Work in progress full stack application featuring Docker, Postgres, Prisma, Express and Vue',
-    hostedLink: '',
+    hostedLink: 'https://hour-tracker.flsoller.dev/login',
     sourceLink: 'https://github.com/flsoller/ff-hour-tracker',
-    noDemo: true,
   },
   {
     imgSource: `${imgSource}/reporting-app.png`,
     name: 'Demo Reporting App',
     description:
-      'A sample project for tracking, generating and managing technical maintenance reports. Stack: Typescript, Angular 12, Angular Material, TailwindCSS, Jest, NodeJS with Express and MongoDB. Hosted on a free dyno of Heroku, server may need a few seconds to wake up from sleep mode.',
-    hostedLink: 'https://sam-reporting-app.herokuapp.com/',
+      'A sample project for tracking, generating and managing technical maintenance reports. Stack: Typescript, Angular 12, Angular Material, TailwindCSS, Jest, NodeJS with Express and MongoDB.',
+    hostedLink: '',
     sourceLink: 'https://github.com/flsoller/sam-reporting-app',
+    noDemo: true,
   },
   {
     imgSource: `${imgSource}/library-angular-project.png`,
