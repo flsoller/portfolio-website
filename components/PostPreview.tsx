@@ -3,15 +3,12 @@ import Link from 'next/link';
 import { BlogPost } from '../lib/types';
 
 export default function PostPreview(props: BlogPost) {
-  const { date, title, tags, description, slug } = props;
+  const { title, tags, description, slug } = props;
 
   return (
     <article>
-      <div className="md:grid md:grid-cols-4 md:items-baseline">
-        <p className="text-base md:tracking-wide font-medium text-gray-500 pb-2">
-          {date}
-        </p>
-        <div className="col-span-3">
+      <div className="flex md:max-w-3xl">
+        <div className="">
           <p className="text-xl font-bold text-gray-800">{title}</p>
           <div className="flex space-x-3">
             {tags &&
@@ -27,7 +24,10 @@ export default function PostPreview(props: BlogPost) {
               })}
           </div>
           <p className="py-4 text-gray-800">{description}</p>
-          <Link href={`/blog/${slug}`} className="text-blue-600 tracking-wide pt-4">
+          <Link
+            href={`/blog/${slug}`}
+            className="text-blue-600 tracking-wide pt-4"
+          >
             Read more...
           </Link>
         </div>
