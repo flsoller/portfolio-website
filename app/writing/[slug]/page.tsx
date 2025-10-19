@@ -6,6 +6,7 @@ import rehypeHighlight from 'rehype-highlight';
 import remarkGfm from 'remark-gfm';
 import { getPostBySlug, getAllPostSlugs } from '@/lib/posts';
 import { notFound } from 'next/navigation';
+import StructuredData from '@/components/StructuredData';
 import styles from './page.module.css';
 
 interface PageProps {
@@ -32,6 +33,20 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: `${post.title} | Florian Soller`,
     description: post.description,
+    openGraph: {
+      type: 'article',
+      title: post.title,
+      description: post.description,
+      publishedTime: post.date,
+      authors: ['Florian Soller'],
+      tags: post.tags,
+      url: `https://flsoller.dev/writing/${slug}`,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.description,
+    },
   };
 }
 
@@ -43,9 +58,32 @@ export default async function PostPage({ params }: PageProps) {
     notFound();
   }
 
+  const blogPostingData = {
+    '@type': 'BlogPosting',
+    headline: post.title,
+    description: post.description,
+    datePublished: post.date,
+    dateModified: post.date,
+    author: {
+      '@type': 'Person',
+      name: 'Florian Soller',
+      url: 'https://flsoller.dev',
+    },
+    publisher: {
+      '@type': 'Person',
+      name: 'Florian Soller',
+    },
+    url: `https://flsoller.dev/writing/${slug}`,
+    keywords: post.tags?.join(', '),
+    articleBody: post.description,
+    inLanguage: 'en-US',
+  };
+
   return (
-    <main className={styles.main}>
-      <article className={styles.article}>
+    <>
+      <StructuredData data={blogPostingData} />
+      <main className={styles.main}>
+        <article className={styles.article}>
         <div className="container">
           {/* Back Link */}
           <Link href="/writing" className={styles.backLink}>
@@ -98,5 +136,6 @@ export default async function PostPage({ params }: PageProps) {
         </div>
       </article>
     </main>
+    </>
   );
 }
