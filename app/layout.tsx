@@ -33,6 +33,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <style>{`
+          :where(h1) {
+            margin-block: 0.67em;
+            font-size: 2em;
+          }
+        `}</style>
+      </head>
       <body className="antialiased">
         <Navigation />
         <main style={{ flex: 1 }}>

@@ -44,6 +44,8 @@ export default function Hero() {
             <img
               src="/nodedotjs.svg"
               alt="Node.js"
+              width="44"
+              height="44"
               className={`${styles.techIcon} ${styles.nodeIcon}`}
               title="Node.js"
             />
@@ -52,6 +54,8 @@ export default function Hero() {
             <img
               src="/typescript.svg"
               alt="TypeScript"
+              width="44"
+              height="44"
               className={`${styles.techIcon} ${styles.typescriptIcon}`}
               title="TypeScript"
             />
@@ -60,6 +64,8 @@ export default function Hero() {
             <img
               src="/postgresql.svg"
               alt="PostgreSQL"
+              width="44"
+              height="44"
               className={`${styles.techIcon} ${styles.postgresIcon}`}
               title="PostgreSQL"
             />
@@ -68,6 +74,8 @@ export default function Hero() {
             <img
               src="/docker.svg"
               alt="Docker"
+              width="44"
+              height="44"
               className={`${styles.techIcon} ${styles.dockerIcon}`}
               title="Docker"
             />
