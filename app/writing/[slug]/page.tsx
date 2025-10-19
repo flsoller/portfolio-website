@@ -75,7 +75,7 @@ export default async function PostPage({ params }: PageProps) {
     },
     url: `https://flsoller.dev/writing/${slug}`,
     keywords: post.tags?.join(', '),
-    articleBody: post.description,
+    articleBody: post.content,
     inLanguage: 'en-US',
   };
 
