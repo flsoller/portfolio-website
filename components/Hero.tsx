@@ -42,33 +42,33 @@ export default function Hero() {
 
             {/* Node.js */}
             <img
-              src="https://cdn.simpleicons.org/nodedotjs/5FA04E"
+              src="/nodedotjs.svg"
               alt="Node.js"
-              className={styles.techIcon}
+              className={`${styles.techIcon} ${styles.nodeIcon}`}
               title="Node.js"
             />
 
             {/* TypeScript */}
             <img
-              src="https://cdn.simpleicons.org/typescript/3178C6"
+              src="/typescript.svg"
               alt="TypeScript"
-              className={styles.techIcon}
+              className={`${styles.techIcon} ${styles.typescriptIcon}`}
               title="TypeScript"
             />
 
             {/* PostgreSQL */}
             <img
-              src="https://cdn.simpleicons.org/postgresql/4169E1"
+              src="/postgresql.svg"
               alt="PostgreSQL"
-              className={styles.techIcon}
+              className={`${styles.techIcon} ${styles.postgresIcon}`}
               title="PostgreSQL"
             />
 
             {/* Docker */}
             <img
-              src="https://cdn.simpleicons.org/docker/2496ED"
+              src="/docker.svg"
               alt="Docker"
-              className={styles.techIcon}
+              className={`${styles.techIcon} ${styles.dockerIcon}`}
               title="Docker"
             />
           </div>
