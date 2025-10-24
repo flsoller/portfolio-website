@@ -21,7 +21,7 @@
 }
 
 .overview {
-  background-color: var(--bg-primary);
+  background-color: var(--bg-secondary);
   border: 1px solid var(--border-color);
   border-radius: 8px;
   padding: 2rem;
@@ -83,7 +83,7 @@
 }
 
 .architectureCard {
-  background-color: var(--bg-primary);
+  background-color: var(--bg-secondary);
   border: 1px solid var(--border-color);
   border-radius: 8px;
   padding: 2rem;
@@ -120,7 +120,7 @@
 }
 
 .techStack {
-  background-color: var(--bg-primary);
+  background-color: var(--bg-secondary);
   border: 1px solid var(--border-color);
   border-radius: 8px;
   padding: 2rem;
@@ -152,9 +152,6 @@
   }
 }
 
-.techCategory {
-}
-
 .techCategoryTitle {
   font-size: 0.85rem;
   font-weight: 600;
@@ -180,7 +177,7 @@
 }
 
 .highlights {
-  background-color: var(--bg-primary);
+  background-color: var(--bg-secondary);
   border: 1px solid var(--border-color);
   border-radius: 8px;
   padding: 2rem;

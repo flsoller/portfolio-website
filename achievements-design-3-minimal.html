@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Achievements - Minimal Elegant Design</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background: #1a1f2e;
+            min-height: 100vh;
+            padding: 80px 20px;
+        }
+
+        .section {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .title {
+            font-size: 3rem;
+            font-weight: 600;
+            text-align: center;
+            color: #e2e8f0;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .subtitle {
+            font-size: 1.15rem;
+            text-align: center;
+            color: #9fb3ca;
+            margin-bottom: 70px;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 400;
+            line-height: 1.6;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 28px;
+        }
+
+        .card {
+            background: #0f1419;
+            border-radius: 16px;
+            padding: 36px;
+            border: 1px solid #2d3748;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            animation: fadeInUp 0.7s ease-out both;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background: linear-gradient(180deg, #4299e1, #63b3ed);
+            border-radius: 16px 0 0 16px;
+            transition: height 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .card:nth-child(1) { animation-delay: 0.1s; }
+        .card:nth-child(2) { animation-delay: 0.2s; }
+        .card:nth-child(3) { animation-delay: 0.3s; }
+        .card:nth-child(4) { animation-delay: 0.4s; }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 40px rgba(66, 153, 225, 0.15);
+            border-color: #4299e1;
+        }
+
+        .card:hover::before {
+            height: 100%;
+        }
+
+        .cardTitle {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #e2e8f0;
+            margin-bottom: 16px;
+            line-height: 1.4;
+            letter-spacing: -0.3px;
+            transition: color 0.3s ease;
+            min-height: 3.92rem;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .card:hover .cardTitle {
+            color: #4299e1;
+        }
+
+        .cardDescription {
+            font-size: 0.98rem;
+            color: #a0aec0;
+            line-height: 1.75;
+            font-weight: 400;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 50px 20px;
+            }
+
+            .title {
+                font-size: 2.2rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+                margin-bottom: 50px;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .card {
+                padding: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="section">
+        <h2 class="title">Career Achievements</h2>
+        <p class="subtitle">
+            Contributions and successes I've celebrated in over 4 years of working as a Software Developer
+        </p>
+
+        <div class="grid">
+            <div class="card">
+                <h3 class="cardTitle">LLM-Powered Reporting Assistant with AWS Bedrock</h3>
+                <p class="cardDescription">
+                    Built a natural language data reporting system using AWS Bedrock, Lambda and DynamoDB. The system processes user requests through sequential LLM calls to categorize intent, generate SQL queries, and return formatted reports, enabling non-technical users to access their data through conversational interactions.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3 class="cardTitle">AWS Lambda based Kinesis Stream Processor</h3>
+                <p class="cardDescription">
+                    Migrated a legacy ECS-based Kinesis stream processor to AWS Lambda with event source mapping, reducing average maximum processing delay by 90%.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3 class="cardTitle">Event-Driven Architecture with AWS EventBridge</h3>
+                <p class="cardDescription">
+                    Designed a foundational architecture for decomposing a monolithic product on the basis of AWS EventBridge, enabling product teams to develop features independently within their domains. Established patterns for event-driven communication and service decoupling through a shared "Event-Library" used by all product teams.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3 class="cardTitle">Push Notification Backend with AWS SNS</h3>
+                <p class="cardDescription">
+                    Implemented a push notification system using AWS SNS, enabling real-time notifications for mobile platforms. Included a company-first backend controlled UI mobile screen for customizing user settings.
+                </p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

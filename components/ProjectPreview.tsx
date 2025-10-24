@@ -15,7 +15,7 @@ export default function ProjectPreview() {
           </h3>
           <p className={styles.cardSubtitle}>
               Instead of a collection of different projects, here you'll find a showcase for clean code, 
-              solid testing and efficient automation pipelines all wrapped up as a monorepo.
+              solid testing and efficient automation pipelines all wrapped up in a monorepo.
           </p>
 
           <div className={styles.links}>
