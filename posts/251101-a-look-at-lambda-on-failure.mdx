@@ -1,37 +1,35 @@
 ---
-title: "A look at AWS Lambda with on failure destinations in a stream processing environment"
+title: "A look at AWS Lambda with OnFailure destinations in a stream processing environment"
 date: "2025-11-01"
-description: "Gracefully handling errors is one of the most important aspects in software development, especially when working with Kinesis data streams. Lets explore a powerful solution provided by AWS Lambda."
+description: "Gracefully handling errors is one of the most important aspects of software development, especially when working with Kinesis data streams. Let's explore a powerful solution provided by AWS Lambda."
 tags: ["AWS", "Lambda", "Serverless", "Kinesis"]
 ---
 
 > "Everything fails, all the time." — Werner Vogels
 
-The quote above from the CTO of AWS is a reminder that we need to design our systems with resilience in mind. All it takes is a broken event format or an upstream service to go down and we are left with a fault that now must be handled. Depending on where the fault in your architecture occurs, this could break your entire application. In this article we'll explore Lambdas OnFailure configurations for helping us deal with faults.
+The quote above from the CTO of AWS is a reminder that we need to design our systems with resilience in mind. All it takes is a broken event format or an upstream service to go down, and we are left with a fault that now must be handled. Depending on where the fault occurs in your architecture, a single error could break your entire application. In this article we'll explore Lambda's OnFailure configurations for helping us deal with faults.
 
 ## What is a Lambda "OnFailure" destination?
 
 Before we can understand OnFailure destinations, we first must look at the two different methods to invoke Lambda functions. These are synchronous and asynchronous invocations.
 
 #### Synchronous Invocations
-A synchronous invocation behaves similar to HTTP requests where a request is sent to an endpoint and waits for the task to complete. Based on the response status code or payload, your program can then decide how to handle the result of the operation. Errors can be dealt with as part of your normal control flow.
+A synchronous invocation behaves similarly to HTTP requests, where a request is sent to an endpoint and waits for the task to complete. Based on the response status code or payload, your program can then decide how to handle the result of the operation. Errors can be dealt with as part of your normal control flow.
 
 #### Asynchronous Invocations
-An asynchronous invocation differs from synchronous invocations in the sense that the immediate response will not contain the result of the operation or inform of a function error. A status code will indicate that the event has been accepted, but it is a fire and forget scenario that will not allow you to act on the end result of the request within the same request/response cycle. While Lambda has an internal event queue that retries function errors twice, once these retries are exhausted, your event will be discarded and lost. Needless to say, loosing events can have catastrophic consequences depending on the type of your application, so we need a way to preserve events in case of failures.
+An asynchronous invocation doesn't contain the result of the operation or inform you of a function error. A status code indicates that the event has been accepted, but it's a fire-and-forget scenario that won't allow you to act on the end result of the request within the same request/response cycle. While Lambda has an internal event queue that retries function errors twice, once these retries are exhausted, your event will be discarded and lost. Depending on the type of your application, losing events can have catastrophic consequences, which is why we need a way to preserve them in case of failures.
 
 #### OnFailure
-Now that we understand the difference in invocation types and their consequences in case of errors, it becomes apparent that the use case for OnFailure destinations is only relevant for asynchronous Lambda invocations. Simply put, it is the ability to configure a destination where your invocation and error response payloads are placed when a function error is encountered.
+Now that we understand the difference in invocation types and their consequences in case of errors, it becomes apparent that the use case for OnFailure destinations is only relevant for asynchronous Lambda invocations. To simplify, it's the ability to configure a destination where your invocation and error response payloads are placed when a function error is encountered.
 
-In the context of Kinesis stream processing, this is particularly critical as any errors encountered would halt processing of events as the same faulty event would be retried over and over again. What is known as the "poison pill" will prevent any more events from being processed until the event eventually expires in the stream. OnFailure destinations make it possible to retain the faulty event in a different location and continue to process incoming events. 
+In the context of Kinesis stream processing this is particularly critical, as any encountered error halts processing of events because the same faulty event would be retried over and over again. This problem is commonly described as the "poison pill" and will stop all new events from being processed. OnFailure destinations make it possible to retain the faulty event in a different location and continue to process incoming events.
 
-It's important to keep in mind that OnFailure will only come into play for unhandled function errors. If your Code will not let the error bubble up to the handler level, OnFailure will have no effect.
+It's important to keep in mind that OnFailure will only come into play for unhandled function errors; if your code will not let the error bubble up to the handler level, OnFailure will have no effect.
 
 ## What type of configurations do exist?
 
-Lets dive into the different options available to us for retaining events and handle them gracefully.
-
 #### SNS OnFailure Destination
-This option lets us send our function errors to a topic of the AWS Simple Notification Service. It's important to note that SNS does not allow us to retain events but only broadcast them to subscribers of a topic at least once. Furthermore, the combined size of the invocation event and error response must not exceed 256KB, else Lambda will drop the payload when sending the OnFailure event to the destination. This bears a high risk of loosing events still if you can't 100% guarantee your full payload stays within the limits.
+This option lets us send our function errors to a topic of the AWS Simple Notification Service. It's important to note that SNS does not allow us to retain events but only broadcast them to subscribers of a topic at least once. Furthermore, the combined size of the invocation event and error response must not exceed 256KB; otherwise Lambda will drop the payload when sending the OnFailure event to the destination. This bears a high risk of losing events still if you can't 100% guarantee your full payload stays within the limits.
 
 #### SQS OnFailure Destination
 This option lets us send function error payloads to AWS' Simple Queue Service. A large benefit over SNS is it removes the size limitations for us. However, the maximum event age is restricted to 14 days. Most likely you don't want to wait that long before resolving the root cause and re-driving a failed event but it's an aspect to consider. Additionally, there's a limitation to the shape of events placed into SQS when handling a fault during Kinesis stream processing which we'll explore below.
@@ -45,9 +43,9 @@ s3://your-bucket-name/aws/lambda/$UUID/shardId-000000000001/2025/11/01/2025-11-0
 ```
 
 ## Why S3 is my preferred OnFailure destination
-When it comes to Lambda Kinesis stream processing with event source mapping, there is one major downside to how events are shaped when they are sent to their SNS or SQS OnFailure destination: they only contain the Kinesis batch information and not the event itself. This means re-driving events requires you to retrieve the original event from the stream by shardId and sequence number. On top of that, depending on what your configured Kinesis stream retention period is, you are still at risk of loosing the event if not retrieved in time.
+When it comes to Lambda Kinesis stream processing with event source mapping, there is one major downside to how events are shaped when they are sent to their SNS or SQS OnFailure destination: they only contain the Kinesis batch information and not the event itself. This means re-driving events requires you to retrieve the original event from the stream by shardId and sequence number. On top of that, depending on what your configured Kinesis stream retention period is, you are still at risk of losing the event if not retrieved in time.
 
-Enter S3. The event written to the bucket is organized into RequestContext, RequestPayload, ResponseContext and ResponsePayload. I've attached an example of the event data structure here:
+Enter S3. The event written to the bucket is organized into RequestContext, RequestPayload, ResponseContext and ResponsePayload. Here is an example of the event data structure:
 
 ```json
 {
@@ -70,13 +68,13 @@ Enter S3. The event written to the bucket is organized into RequestContext, Requ
   "responsePayload": {
     "errorType": "your_error_type",
     "errorMessage": "your_error_message",
-    "trace": ["Error...."],
+    "trace": ["Error...."]
   }
 }
 ```
 
-## A real life example of how it saved the day
-Due to Human error, all RDS Database endpoint variables for our Kinesis stream processor were misconfigured for the production environment. The staging End-2-End tests had successfully passed and the subsequent deployment to the demo environment was normal. However, during production deployments our error monitors suddenly alerted us to an extreme rate of function errors. Since the database endpoints were not correctly set, all processing attempts would fail due to a DB connection issue. Subsequently, each and every event was routed to our OnFailure S3 bucket.
+## A real-life example of how it saved the day
+Due to human error, all RDS database endpoint variables for our Kinesis stream processor were misconfigured for the production environment. The staging end-to-end tests had successfully passed and the subsequent deployment to the demo environment was normal. However, during production deployments our error monitors suddenly alerted us to an extreme rate of function errors. Since the database endpoints were not correctly set, all processing attempts would fail due to a DB connection issue. Subsequently, each and every event was routed to our OnFailure S3 bucket.
 
 Once the configuration problem was identified and resolved, we had a task ready to simply re-publish all failed event payloads to the Kinesis stream exactly as they were stored. No messages were lost and re-processing about 20k stored events was done in mere minutes.
 
