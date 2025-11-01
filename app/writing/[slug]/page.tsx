@@ -8,6 +8,8 @@ import { getPostBySlug, getAllPostSlugs } from '@/lib/posts';
 import { notFound } from 'next/navigation';
 import StructuredData from '@/components/StructuredData';
 import styles from './page.module.css';
+import CustomLink from '@/components/CustomLink';
+import { H2 } from '@/components/MDXHeading';
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -118,6 +120,10 @@ export default async function PostPage({ params }: PageProps) {
           <div className={styles.content}>
             <MDXRemote
               source={post.content}
+              components={{
+                a: CustomLink,
+                h2: H2
+              }}
               options={{
                 mdxOptions: {
                   remarkPlugins: [remarkGfm],

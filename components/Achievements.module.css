@@ -23,26 +23,56 @@
 
 .grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.75rem;
 }
 
 .card {
   background-color: var(--bg-primary);
   border: 1px solid var(--border-color);
-  border-radius: 8px;
-  padding: 2rem;
+  border-radius: 16px;
+  padding: 2.25rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(66, 153, 225, 0.15);
+  border-color: var(--accent-blue);
 }
 
 .cardTitle {
-  font-size: 1rem;
+  font-size: 1.4rem;
   font-weight: 600;
   color: var(--text-primary);
   margin-bottom: 1rem;
+  line-height: 1.4;
+  letter-spacing: -0.3px;
+  transition: color 0.3s ease;
+  min-height: 3.92rem;
+  display: flex;
+  align-items: flex-start;
+}
+
+.card:hover .cardTitle {
+  color: var(--accent-blue);
 }
 
 .cardDescription {
-  font-size: 0.95rem;
-  line-height: 1.7;
+  font-size: 0.98rem;
+  line-height: 1.75;
   color: var(--text-secondary);
+  font-weight: 400;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    padding: 1.75rem;
+  }
 }

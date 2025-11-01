@@ -1,0 +1,22 @@
+.heading {
+  position: relative;
+  scroll-margin-top: 100px;
+}
+
+.anchor {
+  position: absolute;
+  margin-left: 0.5rem;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  cursor: pointer;
+}
+
+.heading:hover .anchor {
+  opacity: 1;
+}
+
+.anchor:hover {
+  color: var(--color-accent);
+}
