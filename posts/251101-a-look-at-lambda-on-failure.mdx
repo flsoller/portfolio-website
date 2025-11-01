@@ -42,10 +42,10 @@ An example S3 URI for a failed Kinesis stream event would look like this:
 s3://your-bucket-name/aws/lambda/$UUID/shardId-000000000001/2025/11/01/2025-11-01T10.00.00-$UUID
 ```
 
-## Why S3 is my preferred OnFailure destination
-When it comes to Lambda Kinesis stream processing with event source mapping, there is one major downside to how events are shaped when they are sent to their SNS or SQS OnFailure destination: they only contain the Kinesis batch information and not the event itself. This means re-driving events requires you to retrieve the original event from the stream by shard id and sequence number. On top of that, depending on what your configured Kinesis stream retention period is, you are still at risk of losing the event if not retrieved in time.
+## Why is S3 my preferred OnFailure destination?
+When it comes to Lambda Kinesis stream processing with event source mapping, there is one major downside to how events are shaped when they are sent to their SNS or SQS OnFailure destination: they only contain the Kinesis batch information and not the event itself, which requires you to retrieve the original event from the stream by shard ID and sequence number before re-driving it. In addition, depending on your configured stream retention period, you are still at risk of losing the event if not retrieved in time.
 
-Enter S3. The event written to the bucket is organized into RequestContext, RequestPayload, ResponseContext and ResponsePayload. Here is an example of the event data structure:
+Enter S3. The event written to the bucket is organized into RequestContext, RequestPayload, ResponseContext, and ResponsePayload. I've attached an example of the event data structure here:
 
 ```json
 {
@@ -73,21 +73,20 @@ Enter S3. The event written to the bucket is organized into RequestContext, Requ
 }
 ```
 
-## A real-life example of how it saved the day
-Due to human error, all RDS database endpoint variables for our Kinesis stream processor were misconfigured for the production environment. The staging end-to-end tests had successfully passed and the subsequent deployment to the demo environment was normal. However, during production deployments our error monitors suddenly alerted us to an extreme rate of function errors. Since the database endpoints were not correctly set, all processing failed. Subsequently, each and every event was routed to our OnFailure S3 bucket.
+## A real-life example of how it saved the day.
+Due to human error, all RDS database endpoint variables were misconfigured for our Kinesis stream processor. The staging end-to-end tests had successfully passed, and the subsequent deployment to the demo environment was normal. However, during production deployments our error monitors suddenly alerted us to an extreme rate of function errors. All processing failed since the database endpoints were not correctly set. Subsequently, each and every event was routed to our OnFailure S3 bucket.
 
-Once the configuration problem was identified and resolved, we had a workflow ready to simply re-drive all failed events to the Kinesis stream. No messages were lost, and re-processing about 20k stored events was done in mere minutes.
+Once the configuration problem was identified and resolved, we had a workflow ready to simply re-drive all failed events to the Kinesis stream. No messages were lost, and reprocessing about 20k stored events was done in mere minutes.
 
-Anticipating failure and adhering to the "Everything fails, all the time." mantra allowed us to easily recover from what otherwise would have been a catastrophic event.
+Anticipating failure and adhering to the "Everything fails, all the time" mantra allowed us to easily recover from what otherwise would have been a catastrophic event.
 
-## How do I configure it?
+## Example configurations:
 
 - [Event Source Mapping Destination:](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-properties-lambda-eventsourcemapping-destinationconfig.html)
 
 ```yaml
 Type: AWS::Lambda::EventSourceMapping
 Properties:
-  [cut for brevity]
   DestinationConfig:
     OnFailure:
       Destination: !GetAtt YourOnFailureBucket.Arn
@@ -98,7 +97,6 @@ Properties:
 ```yaml
 Type: AWS::Serverless::Function
 Properties:
-  [cut for brevity]
   EventInvokeConfig:
     DestinationConfig:
       OnFailure:
