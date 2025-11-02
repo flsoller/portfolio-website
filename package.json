@@ -11,24 +11,29 @@
     "@vercel/analytics": "1.5.0",
     "date-fns": "4.1.0",
     "gray-matter": "4.0.3",
-    "next": "15.5.6",
+    "next": "16.0.1",
     "next-mdx-remote": "5.0.0",
-    "react": "19.1.0",
-    "react-dom": "19.1.0",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
     "rehype-highlight": "7.0.2",
     "remark-gfm": "4.0.1"
   },
   "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "typescript": "^5"
+    "@types/node": "24.9.2",
+    "@types/react": "19.2.2",
+    "@types/react-dom": "19.2.2",
+    "typescript": "5.9.3"
   },
   "browserslist": [
-    ">0.3%",
-    "last 2 versions",
-    "not ie 11",
-    "not op_mini all"
+    "defaults and fully supports es6-module",
+    "not op_mini all",
+    ">5%"
   ],
-  "packageManager": "pnpm@10.8.0+sha512.0e82714d1b5b43c74610193cb20734897c1d00de89d0e18420aebc5977fa13d780a9cb05734624e81ebd81cc876cd464794850641c48b9544326b5622ca29971"
+  "packageManager": "pnpm@10.20.0+sha512.cf9998222162dd85864d0a8102e7892e7ba4ceadebbf5a31f9c2fce48dfce317a9c53b9f6464d1ef9042cba2e02ae02a9f7c143a2b438cd93c91840f0192b9dd",
+  "pnpm": {
+    "overrides": {
+      "@types/react": "19.2.2",
+      "@types/react-dom": "19.2.2"
+    }
+  }
 }
