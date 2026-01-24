@@ -14,13 +14,13 @@ export default function ProjectPreview() {
             Hour Tracking Application
           </h3>
           <p className={styles.cardSubtitle}>
-              Instead of a collection of different projects, here you'll find a showcase for clean code, 
-              solid testing and efficient automation pipelines all wrapped up in a monorepo.
+            Instead of a collection of different projects, here you'll find a showcase for clean code,
+            solid testing and efficient automation pipelines all wrapped up in a monorepo.
           </p>
 
           <div className={styles.links}>
             <a
-              href="https://timecraft.codrino.com"
+              href="https://app.tokistack.com"
               target="_blank"
               rel="noopener noreferrer"
               className={styles.link}

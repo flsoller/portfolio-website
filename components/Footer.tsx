@@ -37,7 +37,7 @@ export default function Footer() {
       {/* Footer */}
       <footer className={styles.footer}>
         <div className="container">
-          <p>&copy; 2025 Florian Soller</p>
+          <p>&copy; 2026 Florian Soller</p>
         </div>
       </footer>
     </>

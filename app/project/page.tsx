@@ -24,17 +24,17 @@ export default function ProjectPage() {
               Hour Tracker
             </h3>
             <p className={styles.projectSubtitle}>
-              Instead of a collection of different projects, here you'll find a showcase for clean code, 
+              Instead of a collection of different projects, here you'll find a showcase for clean code,
               solid testing and efficient automation pipelines all wrapped up in a monorepo.
             </p>
             <p className={styles.projectSubtitle}>
-              A serverless hour and expense tracking application still being developed. 
+              A serverless hour and expense tracking application still being developed.
               The idea and motivation for the project was driven by a request from a friend.
             </p>
 
             <div className={styles.links}>
               <a
-                href="https://timecraft.codrino.com"
+                href="https://app.tokistack.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.link}
