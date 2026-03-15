@@ -11,7 +11,7 @@ export default function ProjectPreview() {
 
         <div className={styles.card}>
           <h3 className={styles.cardTitle}>
-            Hour Tracking Application
+            Tokistack - Time Tracking Application
           </h3>
           <p className={styles.cardSubtitle}>
             Instead of a collection of different projects, here you'll find a showcase for clean code,
@@ -28,7 +28,7 @@ export default function ProjectPreview() {
               <span>Live Demo</span>
             </a>
             <a
-              href="https://github.com/flsoller/ff-hour-tracker"
+              href="https://github.com/CodrinoApps/tokistack"
               target="_blank"
               rel="noopener noreferrer"
               className={styles.link}

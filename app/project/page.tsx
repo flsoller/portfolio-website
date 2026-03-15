@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 import styles from './page.module.css';
 
 export const metadata: Metadata = {
-  title: 'Hour Tracker - Featured Project | Florian Soller',
-  description: 'A serverless hour and expense tracking application built with AWS Lambda, API Gateway, and PostgreSQL.',
+  title: 'Tokistack - Featured Project | Florian Soller',
+  description: 'A serverless time logging and tracking application built with AWS Lambda, API Gateway, and PostgreSQL.',
 };
 
 export default function ProjectPage() {
@@ -21,7 +21,7 @@ export default function ProjectPage() {
           {/* Project Overview */}
           <div className={styles.overview}>
             <h3 className={styles.projectTitle}>
-              Hour Tracker
+              Tokistack
             </h3>
             <p className={styles.projectSubtitle}>
               Instead of a collection of different projects, here you'll find a showcase for clean code,
@@ -42,7 +42,7 @@ export default function ProjectPage() {
                 <span>Live Demo</span>
               </a>
               <a
-                href="https://github.com/flsoller/ff-hour-tracker"
+                href="https://github.com/CodrinoApps/tokistack"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.link}
@@ -61,10 +61,8 @@ export default function ProjectPage() {
               </h4>
               <ul className={styles.architectureList}>
                 {[
-                  'Docker based AWS Lambda functions',
                   'Node.js/TypeScript backend services',
                   'API Gateway integration and routing',
-                  'JWT-based authentication flow',
                   'Lambda authorizer pattern',
                   'RESTful API design principles',
                   'Error handling and structured logging',
@@ -84,9 +82,10 @@ export default function ProjectPage() {
               <ul className={styles.architectureList}>
                 {[
                   'AWS CDK (Infrastructure as Code)',
-                  'ECR for container image management',
+                  'S3 for code artifact management',
                   'GitHub Actions CI/CD pipeline',
-                  'Monorepo with Yarn workspaces & Turbo',
+                  'Terraform managed Cloudflare CDN',
+                  'Monorepo with PNPM workspaces & Turbo',
                   '1-Click release pipeline',
                 ].map((item, index) => (
                   <li key={index} className={styles.architectureItem}>
@@ -122,8 +121,7 @@ export default function ProjectPage() {
               </h4>
               <ul className={styles.architectureList}>
                 {[
-                  'Vue 3 with TailwindCSS',
-                  'Vite build tooling',
+                  'Angular with a custom UI library',
                   'Component-based UI architecture',
                 ].map((item, index) => (
                   <li key={index} className={styles.architectureItem}>
@@ -138,13 +136,13 @@ export default function ProjectPage() {
           <div className={styles.techStack}>
             <h3 className={styles.techStackTitle}>Technical Stack</h3>
             <div className={styles.techGrid}>
-              {/* Backend & API */}
+              {/* AWS Infrastructure */}
               <div className={styles.techCategory}>
                 <h4 className={styles.techCategoryTitle}>
-                  Backend & API
+                  AWS Infrastructure
                 </h4>
                 <div className={styles.techList}>
-                  {['Node.js', 'TypeScript', 'JWT Auth'].map((tech, index) => (
+                  {['AWS CDK', 'CloudFormation', 'Lambda', 'API Gateway', 'S3'].map((tech, index) => (
                     <span key={index} className={styles.techTag}>
                       {tech}
                     </span>
@@ -152,13 +150,13 @@ export default function ProjectPage() {
                 </div>
               </div>
 
-              {/* AWS Infrastructure */}
+              {/* Backend & API */}
               <div className={styles.techCategory}>
                 <h4 className={styles.techCategoryTitle}>
-                  AWS Infrastructure
+                  Backend & API
                 </h4>
                 <div className={styles.techList}>
-                  {['AWS CDK', 'CloudFormation', 'Lambda', 'API Gateway', 'ECR'].map((tech, index) => (
+                  {['Node.js', 'TypeScript'].map((tech, index) => (
                     <span key={index} className={styles.techTag}>
                       {tech}
                     </span>
@@ -186,7 +184,7 @@ export default function ProjectPage() {
                   DevOps & Tooling
                 </h4>
                 <div className={styles.techList}>
-                  {['GitHub Actions', 'Jest', 'Turbo', 'Yarn Workspaces'].map((tech, index) => (
+                  {['GitHub Actions', 'Jest', 'Turbo', 'PNPM Workspaces'].map((tech, index) => (
                     <span key={index} className={styles.techTag}>
                       {tech}
                     </span>
@@ -200,7 +198,7 @@ export default function ProjectPage() {
                   Frontend
                 </h4>
                 <div className={styles.techList}>
-                  {['Vue 3', 'Vite', 'TailwindCSS'].map((tech, index) => (
+                  {['Angular', 'Cloudflare'].map((tech, index) => (
                     <span key={index} className={styles.techTag}>
                       {tech}
                     </span>
@@ -215,8 +213,7 @@ export default function ProjectPage() {
             <h3 className={styles.highlightsTitle}>Architecture Highlights</h3>
             <p className={styles.highlightsParagraph}>
               The application follows a serverless-first approach where all compute happens in Lambda functions.
-              The authentication flow uses a dedicated Authenticator Lambda that issues JWTs, which are then
-              validated by an Authorizer Lambda attached to API Gateway.
+              The authentication flow relies on a dedicated custom Authorizer Lambda attached to API Gateway for access controls.
             </p>
             <p className={styles.highlightsParagraph}>
               The database layer uses Neon Postgres with Drizzle ORM for type-safe database operations. Connection
@@ -224,9 +221,7 @@ export default function ProjectPage() {
             </p>
             <h3 className={styles.highlightsTitle}>Current Status</h3>
             <p className={styles.highlightsParagraph}>
-              With the Lambda functions currently being containerized, I want to switch to S3 for hosting the zipped source code
-              instead of ECR. I noticed a higher cold start penalty and given that this is a side project, S3 storage costs are lower
-              compared to the container registry.
+              The project is currently in progress, building out the backend API implementations and UI components.
             </p>
           </div>
         </div>

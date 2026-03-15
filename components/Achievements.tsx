@@ -5,7 +5,7 @@ export default function Achievements() {
     {
       title: 'LLM-Powered Reporting Assistant with AWS Bedrock',
       description:
-        'Built a natural language data reporting system using AWS Bedrock, Lambda and DynamoDB. The system processes user requests through sequential LLM calls to categorize intent, generate SQL queries, and return formatted reports, enabling non-technical users to access their data through conversational interactions.',
+        'Built a natural language data reporting system using AWS Bedrock, Lambda and AgentCore. The system processes IoT based instrument data through Code Interpreter and returns formatted reports, enabling customers to gain valuable insights into their safety program.',
     },
     {
       title: 'AWS Lambda based Kinesis Stream Processor',
